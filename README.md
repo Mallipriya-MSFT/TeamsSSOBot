@@ -36,6 +36,10 @@ After Authentication has been configured via Azure Bot Service, you can test the
     # change into project folder
     cd TeamsBotSSO
     ```
+     ```bash
+  # run the bot
+  dotnet run
+  ```
 
   B) Or from Visual Studio
 
