@@ -8,28 +8,34 @@ This bot has been created using [Bot Framework](https://dev.botframework.com), i
 
 - [.NET Core SDK](https://dotnet.microsoft.com/download) version 3.1
 
-  ```bash
+ ```bash
   # determine dotnet version
   dotnet --version
   ```
+- Visual Studio 2017 or higher for .NET. 
 
 ## To try this sample
 
-- In a terminal, navigate to `TeamsBotSSO`
+- Clone the repository
+
+    ```bash
+    git clone https://github.com/Mallipriya-MSFT/TeamsSSOBot.git
+    ```
+
+- Deploy your bot to Azure, see [Deploy your bot to Azure](https://aka.ms/azuredeployment)
+
+- [Add Single sign on to your bot via Azure Bot Service](https://docs.microsoft.com/en-us/azure/bot-service/bot-builder-authentication-sso?view=azure-bot-service-4.0&tabs=csharp)
+
+After Authentication has been configured via Azure Bot Service, you can test the bot.
+
+- Run the bot from a terminal or from Visual Studio:
+
+  A) In a terminal, navigate to `TeamsBotSSO`
 
     ```bash
     # change into project folder
     cd TeamsBotSSO
     ```
-
-- Run the bot from a terminal or from Visual Studio, choose option A or B.
-
-  A) From a terminal
-
-  ```bash
-  # run the bot
-  dotnet run
-  ```
 
   B) Or from Visual Studio
 
@@ -43,13 +49,17 @@ This bot has been created using [Bot Framework](https://dev.botframework.com), i
 
 [Bot Framework Emulator](https://github.com/microsoft/botframework-emulator) is a desktop application that allows bot developers to test and debug their bots on localhost or running remotely through a tunnel.
 
-- Install the Bot Framework Emulator version 4.3.0 or greater from [here](https://github.com/Microsoft/BotFramework-Emulator/releases)
+- Install the latest Bot Framework Emulator version 4.3.0 or greater from [here](https://github.com/Microsoft/BotFramework-Emulator/releases)
 
 ### Connect to the bot using Bot Framework Emulator
 
 - Launch Bot Framework Emulator
 - File -> Open Bot
 - Enter a Bot URL of `http://localhost:3978/api/messages`
+
+## Interacting with the bot
+
+This sample uses bot authentication capabilities in Azure Bot Service, providing features to make it easier to develop a bot that authenticates users to various identity providers such as Azure AD (Azure Active Directory), GitHub, Uber, etc. These updates also take steps towards an improved user experience by eliminating the magic code verification for some clients.
 
 ## Deploy the bot to Azure
 
@@ -59,6 +69,8 @@ To learn more about deploying a bot to Azure, see [Deploy your bot to Azure](htt
 
 - [Bot Framework Documentation](https://docs.botframework.com)
 - [Bot Basics](https://docs.microsoft.com/azure/bot-service/bot-builder-basics?view=azure-bot-service-4.0)
+- [Azure Portal](https://portal.azure.com)
+- [Add Authentication to Your Bot Via Azure Bot Service](https://docs.microsoft.com/en-us/azure/bot-service/bot-builder-authentication?view=azure-bot-service-4.0&tabs=csharp)
 - [Activity processing](https://docs.microsoft.com/en-us/azure/bot-service/bot-builder-concept-activity-processing?view=azure-bot-service-4.0)
 - [Azure Bot Service Introduction](https://docs.microsoft.com/azure/bot-service/bot-service-overview-introduction?view=azure-bot-service-4.0)
 - [Azure Bot Service Documentation](https://docs.microsoft.com/azure/bot-service/?view=azure-bot-service-4.0)
