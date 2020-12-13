@@ -42,28 +42,34 @@ The focus of this sample is how to use the Bot Framework with SSO support for oa
     ```bash
     ngrok http -host-header=rewrite 3978
     ```
-    
-4) Create [Bot Framework registration resource](https://docs.microsoft.com/en-us/azure/bot-service/bot-service-quickstart-registration) in Azure
+> Configure SSO Authentication to Bot and add an OAuth Connection Setting  
+
+4) Create [Bot Framework registration resource](https://docs.microsoft.com/en-us/microsoftteams/platform/bots/how-to/authentication/add-authentication?tabs=dotnet%2Cdotnet-  sample#create-the-bot-channels-registration) in Azure
     - Use the current `https` URL you were given by running ngrok. Append with the path `/api/messages` used by this sample
     - Ensure that you've [enabled the Teams Channel](https://docs.microsoft.com/en-us/azure/bot-service/channel-connect-teams?view=azure-bot-service-4.0)
     - __*If you don't have an Azure account*__ you can use this [Bot Framework registration](https://docs.microsoft.com/en-us/microsoftteams/platform/bots/how-to/create-a-bot-for-teams#register-your-web-service-with-the-bot-framework)
 
-5) Update the `appsettings.json` configuration for the bot to use the Microsoft App Id and App Password from the Bot Framework registration. (Note the App Password is referred to as the "client secret" in the azure portal and you can always create a new client secret anytime.)
+5) [Create the identity provider](https://docs.microsoft.com/en-us/microsoftteams/platform/bots/how-to/authentication/add-authentication?tabs=dotnet%2Cdotnet-sample#create-the-identity-provider)
 
-6) __*This step is specific to Teams.*__
+5) To create identity provider to configure SSO Authentication, [register your app through the Azure Active Directory](https://docs.microsoft.com/en-us/microsoftteams/platform/tabs/how-to/authentication/auth-aad-sso#registering-your-app-through-the-azure-active-directory-portal-in-depth).
+
+> NOTE: Steps in registering app through Azure AD to confirgure SSO for bots is similar to Tabs. Refer: [Develop a single sign-on Microsoft Teams bot](https://docs.microsoft.com/en-us/microsoftteams/platform/bots/how-to/authentication/auth-aad-sso-bots#develop-a-single-sign-on-microsoft-teams-bot)
+
+6) Update the `appsettings.json` configuration for the bot to use the Microsoft App Id, App Password and Connection Name from the Bot Framework registration. (Note the App Password is referred to as the "client secret" in the azure portal and you can always create a new client secret anytime.)
+
+7) __*This step is specific to Teams.*__
     - **Edit** the `manifest.json` contained in the  `teamsAppManifest` folder to replace your Microsoft App Id (that was created when you registered your bot earlier) *everywhere* you see the place holder string `<<YOUR-MICROSOFT-APP-ID>>` (depending on the scenario the Microsoft App Id may occur multiple times in the `manifest.json`)
     - **Zip** up the contents of the `teamsAppManifest` folder to create a `manifest.zip`
     - **Upload** the `manifest.zip` to Teams (in the Apps view click "Upload a custom app")
 
-7) Run your bot, either from Visual Studio with `F5` or using `dotnet run` in the appropriate folder.
+8) Run your bot, either from Visual Studio with `F5` or using `dotnet run` in the appropriate folder.
 
 ## Interacting with the bot in Teams
 
 > Note this `manifest.json` specified that the bot will be installed in a "personal" scope only. Please refer to Teams documentation for more details.
 
-You can interact with this bot by sending it a message. The bot will respond by requesting you to login to AAD, then making a call to the Graph API on your behalf and returning the results.
-
-This sample uses bot authentication capabilities in Azure Bot Service, providing features to make it easier to develop a bot that authenticates users to various identity providers such as Azure AD (Azure Active Directory), GitHub, Uber, etc. These updates also take steps towards an improved user experience by eliminating the magic code verification for some clients.
+You can interact with this bot by sending it a message. The bot sends a message with an OAuthCard that contains the tokenExchangeResource property. It tells Teams to obtain an authentication token for the bot application. Thus, you receives messages at all the active endpoints. If it is the first time the you are using this bot application, you will be prompted with consent experience for enabling additional permissions.
+ 
 
 ## Deploy the bot to Azure
 
@@ -74,6 +80,7 @@ To learn more about deploying a bot to Azure, see [Deploy your bot to Azure](htt
 - [Bot Framework Documentation](https://docs.botframework.com)
 - [Bot Basics](https://docs.microsoft.com/azure/bot-service/bot-builder-basics?view=azure-bot-service-4.0)
 - [Azure Portal](https://portal.azure.com)
+- [Develop a single sign-on Microsoft Teams bot](https://docs.microsoft.com/en-us/microsoftteams/platform/bots/how-to/authentication/auth-aad-sso-bots#develop-a-single-sign-on-microsoft-teams-bot)
 - [Add Single sign on to your bot via Azure Bot Service](https://docs.microsoft.com/en-us/azure/bot-service/bot-builder-authentication-sso?view=azure-bot-service4.0&tabs=csharp)
 - [Activity processing](https://docs.microsoft.com/en-us/azure/bot-service/bot-builder-concept-activity-processing?view=azure-bot-service-4.0)
 - [Azure Bot Service Introduction](https://docs.microsoft.com/azure/bot-service/bot-service-overview-introduction?view=azure-bot-service-4.0)
