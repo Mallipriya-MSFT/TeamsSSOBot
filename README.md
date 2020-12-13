@@ -27,7 +27,7 @@ The focus of this sample is how to use the Bot Framework with SSO support for oa
 1) Clone the repository
 
     ```bash
-    git clone https://github.com/Mallipriya-MSFT/TeamsSSOBot.git
+    git clone https://github.com/Microsoft/botbuilder-samples.git
     ```
 
 2) If you are using Visual Studio
