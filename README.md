@@ -42,14 +42,12 @@ The focus of this sample is how to use the Bot Framework with SSO support for oa
     ```bash
     ngrok http -host-header=rewrite 3978
     ```
-> Configure SSO Authentication to Bot and add an OAuth Connection Setting  
+### Configure SSO Authentication and add an OAuth Connection Setting to Bot  
 
-4) Create [Bot Framework registration resource](https://docs.microsoft.com/en-us/microsoftteams/platform/bots/how-to/authentication/add-authentication?tabs=dotnet%2Cdotnet-  sample#create-the-bot-channels-registration) in Azure
+4) Create [Bot Framework registration resource](https://docs.microsoft.com/en-us/microsoftteams/platform/bots/how-to/authentication/add-authentication?tabs=dotnet%2Cdotnet-sample#create-the-bot-channels-registration) in Azure
     - Use the current `https` URL you were given by running ngrok. Append with the path `/api/messages` used by this sample
     - Ensure that you've [enabled the Teams Channel](https://docs.microsoft.com/en-us/azure/bot-service/channel-connect-teams?view=azure-bot-service-4.0)
     - __*If you don't have an Azure account*__ you can use this [Bot Framework registration](https://docs.microsoft.com/en-us/microsoftteams/platform/bots/how-to/create-a-bot-for-teams#register-your-web-service-with-the-bot-framework)
-
-5) [Create the identity provider](https://docs.microsoft.com/en-us/microsoftteams/platform/bots/how-to/authentication/add-authentication?tabs=dotnet%2Cdotnet-sample#create-the-identity-provider)
 
 5) To create identity provider to configure SSO Authentication, [register your app through the Azure Active Directory](https://docs.microsoft.com/en-us/microsoftteams/platform/tabs/how-to/authentication/auth-aad-sso#registering-your-app-through-the-azure-active-directory-portal-in-depth).
 
