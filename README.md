@@ -1,8 +1,12 @@
 ﻿# TeamsBotSSO
 
-Bot Framework v4 bot single sign-on Teams authentication sample.
+Bot Framework v4 Teams bot single sign on (SSO) authentication sample.
 
-This bot has been created using [Bot Framework](https://dev.botframework.com), it shows the minimum code required to build a bot.
+This bot has been created using [Bot Framework](https://dev.botframework.com), it shows how to add the [Single Sign On (SSO)](https://docs.microsoft.com/en-us/azure/bot-service/bot-builder-concept-sso?view=azure-bot-service-4.0) authentication for Microsoft Teams.
+
+The sample uses the bot authentication capabilities in [Azure Bot Service](https://docs.botframework.com), providing SSO feature to make it easier to develop a bot that authenticates users. Currently, only the [Azure AD v2](https://docs.microsoft.com/en-us/azure/bot-service/bot-builder-concept-identity-providers?view=azure-bot-service-4.0&tabs=adv1%2Cga2#azure-active-directory-identity-provider) identity provider is supported.
+
+> IMPORTANT: The manifest file in this app adds "token.botframework.com" to the list of `validDomains`. This must be included in any bot that uses the Bot Framework OAuth flow.
 
 ## Prerequisites
 
@@ -12,8 +16,6 @@ This bot has been created using [Bot Framework](https://dev.botframework.com), i
   # determine dotnet version
   dotnet --version
   ```
-- Visual Studio 2017 or higher for .NET. 
-
 ## To try this sample
 
 - Clone the repository
